@@ -8,4 +8,9 @@ class LoginController{
     {
         view('login');
     }
+
+    public function authenticate(){
+        $email = get('email');
+        $password = get ('password');
+    }
 }

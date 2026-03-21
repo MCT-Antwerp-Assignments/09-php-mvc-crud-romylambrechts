@@ -9,3 +9,16 @@ function view($view, $data = [])
 function redirect ($path): void{
     header ("Location: {$path}");
 }
+
+function get($key)
+{
+    if (!empty($_GET[$key])) {
+        return $_GET[$key];
+    }
+
+    if (!empty($_POST[$key])) {
+        return $_POST[$key];
+    }
+
+    return null;
+}

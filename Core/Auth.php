@@ -9,7 +9,7 @@ class Auth
     /**
      * Check if the user is logged in
      */
-    public static function check(): void
+    public static function check()
     {
         if (empty(Session::get('user'))) {
             redirect('/login');

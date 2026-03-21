@@ -22,6 +22,7 @@ class LoginController
             Session::set('user', $user->id);
             redirect('/');
         }
+        redirect('/login');
     }
 
     public function logout()

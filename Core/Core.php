@@ -1,6 +1,8 @@
 <?php
 
 namespace Core;
+use Core\Session;
+
 
 class Core
 {
@@ -9,6 +11,8 @@ class Core
         $whoops = new \Whoops\Run;
         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
         $whoops->register();
+
+        Session::start();
     }
 
     public static function header(?string $title = '')

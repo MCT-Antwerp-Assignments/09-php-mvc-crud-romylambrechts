@@ -7,7 +7,7 @@ class HomeController
 {
     public function index()
     {
-        echo 'Hello world';
+        view('home');
     }
 
 }

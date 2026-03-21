@@ -21,6 +21,12 @@ class LoginController
         if ($user && password_verify($password, $user->password)) {
             Session::set('user', $user->id);
             redirect('/');
-        } 
+        }
+    }
+
+    public function logout()
+    {
+        Session::destroy();
+        redirect('/login');
     }
 }

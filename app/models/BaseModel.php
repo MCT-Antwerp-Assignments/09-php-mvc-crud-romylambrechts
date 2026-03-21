@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Models;
 
 use PDO;
 use Core\Database;
 
-class Contact
+class BaseModel
 {
     protected $db;
     protected string $query;
@@ -12,10 +13,12 @@ class Contact
     protected string $tableName = '';
     protected array $attributes = [];
 
+
     public function __construct()
     {
         $this->db = Database::getInstance();
     }
+
 
     public function __set($name, $value)
     {
@@ -24,7 +27,7 @@ class Contact
 
     public function __get($name)
     {
-        $this->attributes[$name];
+        return $this->attributes[$name] ?? null;
     }
 
     public static function all(bool $withTrashed = false)
@@ -32,9 +35,9 @@ class Contact
         $instance = new static();
 
         if ($withTrashed) {
-            $stmt = $instance->db->query("SELECT * FROM {instance->tablename}");
+            $stmt = $instance->db->query("SELECT * FROM {$instance->tableName}");
         } else {
-            $stmt = $instance->db->query("SELECT * FROM {instance->tablename} WHERE deleted_at IS NULL");
+            $stmt = $instance->db->query("SELECT * FROM {$instance->tableName} WHERE deleted_at IS NULL");
         }
         return $stmt->fetchAll(PDO::FETCH_CLASS, static::class);
     }
@@ -73,8 +76,6 @@ class Contact
 
         return $stmt->fetchObject(static::class);
     }
-
-
 }
 
 

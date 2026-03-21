@@ -9,7 +9,7 @@ Core::Init();
 
 $router = new Router();
 $router->add('/', 'HomeController', 'index');
-$router->add('login', 'LoginController', 'showloginForm');
+$router->add('login', 'LoginController', 'showLoginForm');
 $router->add("authenticate", "LoginController", "authenticate");
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');

@@ -16,6 +16,11 @@ class LoginController
         $email = get('email');
         $password = get('password');
 
-        $user = User::where('email', $email)->first();
+        $user = User::where('email', $email)->get();
+
+        if ($user && password_verify($password, $user->password)) {
+            Session::set('user', $user->id);
+            redirect('/');
+        } 
     }
 }

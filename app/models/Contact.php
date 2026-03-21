@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use PDO;
+use Core\Database;
+
 class Contact
 {
     private $db;

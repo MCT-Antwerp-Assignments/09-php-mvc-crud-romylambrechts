@@ -1,4 +1,5 @@
 <?php 
+
 function view($view, $data = [])
 {
     extract($data);

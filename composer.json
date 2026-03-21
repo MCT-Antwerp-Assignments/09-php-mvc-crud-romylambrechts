@@ -1,6 +1,6 @@
 {
     "require": {
-        "filp/whoops": "^2.17"
+        "filp/whoops": "^2.18"
     },
     "autoload": {
         "psr-4": {

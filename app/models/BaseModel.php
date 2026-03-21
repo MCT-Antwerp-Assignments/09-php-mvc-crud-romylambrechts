@@ -7,6 +7,8 @@ use Core\Database;
 class Contact
 {
     protected $db;
+    protected string $query;
+    protected array $params = [];
     protected string $tableName = '';
     protected array $attributes = [];
 
@@ -36,6 +38,43 @@ class Contact
         }
         return $stmt->fetchAll(PDO::FETCH_CLASS, static::class);
     }
+
+    public static function where($column, $value)
+    {
+        $instance = new static();
+        $instance->query = "SELECT * FROM {$instance->tableName} WHERE {$column} = :value";
+        $instance->params = [':value' => $value];
+
+        return $instance;
+    }
+
+    public function get()
+    {
+        $stmt = $this->db->prepare($this->query);
+
+        foreach ($this->params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetchObject(static::class);
+    }
+
+    public function first()
+    {
+        $stmt = $this->db->prepare($this->query);
+
+        foreach ($this->params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+
+        $stmt->execute();
+
+        return $stmt->fetchObject(static::class);
+    }
+
+
 }
 
 

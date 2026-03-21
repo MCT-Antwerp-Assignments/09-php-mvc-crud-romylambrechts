@@ -15,7 +15,7 @@
 
         <p class="text-center text-red-500">Error message</p>
 
-        <form action="#" method="POST">
+        <form action="/authenticate" method="POST">
             <div class="mb-4">
                 <label for="email" class="block text-gray-600 font-medium mb-2">Email</label>
                 <input type="email" id="email" name="email" required

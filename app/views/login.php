@@ -13,7 +13,9 @@
     <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
         <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
 
-        <p class="text-center text-red-500">Error message</p>
+        <?php if (!empty(Core\Session::get('error'))): ?>
+            <p class="text-center text-red-500"><?= Core\Session::get('error'); ?></p>
+        <?php endif; ?>
 
         <form action="/authenticate" method="POST">
             <div class="mb-4">
@@ -35,3 +37,4 @@
 </body>
 
 </html>
+

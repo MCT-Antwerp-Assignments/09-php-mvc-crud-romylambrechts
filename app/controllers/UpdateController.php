@@ -12,6 +12,12 @@ class UpdateController extends BaseController
     {
         $contact = Contact::where('id', $id)->get();
 
+        if (!is_null($contact->deleted_at)){
+            Session::set('error', 'Contact not found');
+            redirect('/');
+        }
+
+
         if(!$contact){
             Session ::set('error', 'Contact not found');
             redirect('/');

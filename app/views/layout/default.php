@@ -16,6 +16,7 @@
             <h2 class="text-2xl font-bold">Adress book</h2>
             <nav class="mt-5">
                 <a href="/" class="block py-2 px-3 rounded hover:bg-blue-700">Home</a>
+                <a href="/users" class="block py-2 px-3 rounded hover:bg-blue-700">User management</a>
                 <a href="/logout" class="block py-2 px-3 rounded hover:bg-blue-700">Logout</a>
             </nav>
         </aside>

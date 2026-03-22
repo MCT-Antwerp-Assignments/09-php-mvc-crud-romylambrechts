@@ -10,8 +10,9 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        $contacts = Contact::all();
-        view('home', compact ('contacts'));
+        $items = Contact::all();
+        $dataType = 'contacts';
+        view('home', compact ('items', 'dataType'));
     }
 
 }

@@ -1,6 +1,6 @@
 <?php Core\Core::header(); ?>
 <div class="bg-white shadow-md rounded-lg p-6">
-    <form action="#" method="POST" class="space-y-4">
+    <form action="/save" method="POST" class="space-y-4">
         <div>
             <label class="block text-gray-700">Full Name</label>
             <input type="text" name="name"

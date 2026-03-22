@@ -76,6 +76,27 @@ class BaseModel
 
         return $stmt->fetchObject(static::class);
     }
+
+    public function save()
+    {
+        if (empty($this->attributes)) {
+            throw new \Exception("No data to save.");
+        }
+
+        $columns = implode(", ", array_keys($this->attributes));
+        $placeholders = ":" . implode(", :", array_keys($this->attributes));
+        $this->query = "INSERT INTO {$this->tableName} ($columns) VALUES ($placeholders)";
+
+        $stmt = $this->db->prepare($this->query);
+
+        foreach ($this->attributes as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+
+        $success = $stmt->execute();
+
+        return $success;
+    }
 }
 
 

@@ -12,7 +12,9 @@ $router->add('/', 'HomeController', 'index');
 $router->add('login', 'LoginController', 'showLoginForm');
 $router->add("authenticate", "LoginController", "authenticate");
 $router->add('logout', 'LoginController', 'logout');
+
 $router->add('add', 'AddController', 'showAddForm');
+$router->add('save', 'SaveController', 'save');
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $router-> dispatch($uri);

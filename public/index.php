@@ -16,5 +16,7 @@ $router->add('logout', 'LoginController', 'logout');
 $router->add('add', 'AddController', 'showAddForm');
 $router->add('save', 'SaveController', 'save');
 
+$router->add('update/{id}', 'UpdateController', 'showUpdateForm');
+
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $router-> dispatch($uri);

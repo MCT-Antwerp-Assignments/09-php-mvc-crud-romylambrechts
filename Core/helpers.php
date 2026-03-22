@@ -23,3 +23,9 @@ function get($key)
 
     return null;
 }
+
+function snippet($snippet, $data = [])
+{
+    extract($data);
+    require_once "../app/views/snippets/{$snippet}.php";
+}

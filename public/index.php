@@ -14,7 +14,7 @@ $router->add("authenticate", "LoginController", "authenticate");
 $router->add('logout', 'LoginController', 'logout');
 
 $router->add('add', 'AddController', 'showAddForm');
-$router->add('save', 'SaveController', 'save');
+$router->add('save/{id?}', 'SaveController', 'save');
 
 $router->add('update/{id}', 'UpdateController', 'showUpdateForm');
 

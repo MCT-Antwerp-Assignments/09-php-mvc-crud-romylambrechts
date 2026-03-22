@@ -20,7 +20,7 @@ class SaveController extends BaseController
         }
 
         if (!empty($id)) {
-            $contact = Contact::where('id', $id)->first();
+            $contact = Contact::where('id', $id)->get();
             $contact->name = get('name');
             $contact->email = get('email');
             $contact->phone = get('phone');

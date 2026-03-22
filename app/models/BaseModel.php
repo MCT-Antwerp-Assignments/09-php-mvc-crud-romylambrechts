@@ -83,17 +83,42 @@ class BaseModel
             throw new \Exception("No data to save.");
         }
 
-        $columns = implode(", ", array_keys($this->attributes));
-        $placeholders = ":" . implode(", :", array_keys($this->attributes));
-        $this->query = "INSERT INTO {$this->tableName} ($columns) VALUES ($placeholders)";
+        if (!empty($this->attributes['id'])) {
+            $setClauses = [];
 
-        $stmt = $this->db->prepare($this->query);
+            foreach ($this->attributes as $key => $value) {
+                if ($key !== 'id') {
+                    $setClauses[] = "{$key} = :{$key}";
+                }
+            }
 
-        foreach ($this->attributes as $key => $value) {
-            $stmt->bindValue(":$key", $value);
+            $setString = implode(',', $setClauses);
+            $this -> query = "UPDATE {this -> tablename} SET {$setString} WHERE id= :id";
+
+              $stmt = $this->db->prepare($this->query);
+
+            foreach ($this->attributes as $key => $value) {
+                $stmt->bindValue(":$key", $value);
+            }
+
+            $success = $stmt->execute();
+
+        } else {
+            $columns = implode(", ", array_keys($this->attributes));
+            $placeholders = ":" . implode(", :", array_keys($this->attributes));
+            $this->query = "INSERT INTO {$this->tableName} ($columns) VALUES ($placeholders)";
+
+            $stmt = $this->db->prepare($this->query);
+
+            foreach ($this->attributes as $key => $value) {
+                $stmt->bindValue(":$key", $value);
+            }
+
+            $success = $stmt->execute();
         }
 
-        $success = $stmt->execute();
+
+
 
         return $success;
     }

@@ -6,6 +6,12 @@
     </div>
 <?php endif; ?>
 
+<?php if (!empty(Core\Session::get('error'))): ?>
+    <div class="bg-gray-100 pt-5 pb-5 text-red-700">
+        <?= Core\Session::getAndForget('msg'); ?>
+    </div>
+<?php endif; ?>
+
 <?php if (!empty($contacts)): ?>
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full border border-gray-200">

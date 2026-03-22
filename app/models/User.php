@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Contact extends BaseModel
+class User extends BaseModel
 {
     protected string $tableName = 'user';
 }

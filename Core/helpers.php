@@ -8,6 +8,7 @@ function view($view, $data = [])
 
 function redirect ($path): void{
     header ("Location: {$path}");
+    die();
 }
 
 function get($key)

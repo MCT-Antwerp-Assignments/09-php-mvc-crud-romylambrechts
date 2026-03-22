@@ -17,6 +17,7 @@ $router->add('add', 'AddController', 'showAddForm');
 $router->add('save/{id?}', 'SaveController', 'save');
 
 $router->add('update/{id}', 'UpdateController', 'showUpdateForm');
+$router->add('delete/{id}', 'DeleteController', 'delete');
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 $router-> dispatch($uri);

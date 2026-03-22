@@ -14,7 +14,7 @@
         <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Login</h2>
 
         <?php if (!empty(Core\Session::get('error'))): ?>
-            <p class="text-center text-red-500"><?= Core\Session::get('error'); ?></p>
+            <p class="text-center text-red-500"><?= Core\Session::getAndForget('error'); ?></p>
         <?php endif; ?>
 
         <form action="/authenticate" method="POST">

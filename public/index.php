@@ -16,9 +16,12 @@ $router->add('logout', 'LoginController', 'logout');
 $router->add('add', 'AddController', 'showAddForm');
 $router->add('save/{id?}', 'SaveController', 'save');
 
-$router->add('update/{id}', 'UpdateController', 'showUpdateForm');
-$router->add('delete/{id}', 'DeleteController', 'delete');
+$router->add('contacts/update/{id}', 'UpdateController', 'showUpdateForm');
+$router->add('contacts/delete/{id}', 'DeleteController', 'delete');
 
-$router ->add('users', 'UserController', 'index');
+$router->add('users/update/{id}', 'UpdateController', 'showUpdateForm');
+$router->add('users/delete/{id}', 'DeleteController', 'delete');
+
+$router->add('users', 'UserController', 'index');
 $uri = trim($_SERVER['REQUEST_URI'], '/');
-$router-> dispatch($uri);
+$router->dispatch($uri);

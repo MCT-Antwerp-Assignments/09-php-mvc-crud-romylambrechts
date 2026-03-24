@@ -21,9 +21,10 @@ class LoginController
         if ($user && password_verify($password, $user->password)) {
             Session::set('user', $user->id);
             redirect('/');
+        } else {
+            Session::set('error', 'Invalid credentials!');
+            redirect('/login');
         }
-        Session::set('error', 'Invalid credentials!');
-        redirect('/login');
     }
 
     public function logout()

@@ -93,7 +93,7 @@ class BaseModel
             }
 
             $setString = implode(',', $setClauses);
-            $this -> query = "UPDATE {this -> tablename} SET {$setString} WHERE id= :id";
+            $this -> query = "UPDATE {this->tablename} SET {$setString} WHERE id= :id";
 
               $stmt = $this->db->prepare($this->query);
 

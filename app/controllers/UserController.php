@@ -11,7 +11,7 @@ class UserController extends BaseController
     {
         $items = User::all();
         $dataType = 'users';
-        view('user', compact ('items', 'dataType'));
+        view('home', compact ('items', 'dataType'));
     }
 
 }

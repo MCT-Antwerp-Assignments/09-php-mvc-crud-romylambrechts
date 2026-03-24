@@ -1,4 +1,4 @@
-<?php Core\Core::header('My {$dataType}'); ?>
+<?php Core\Core::header("My {$dataType}"); ?>
 
 <?php if (!empty(Core\Session::get('msg'))): ?>
     <div class="bg-gray-100 pt-5 pb-5 text-green-700">

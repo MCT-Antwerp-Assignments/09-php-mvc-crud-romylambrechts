@@ -27,5 +27,5 @@ function get($key)
 function snippet($snippet, $data = [])
 {
     extract($data);
-    require_once "../app/views/snippets/{$snippet}.php";
+    require_once "../app/views/snippet/{$snippet}.php";
 }

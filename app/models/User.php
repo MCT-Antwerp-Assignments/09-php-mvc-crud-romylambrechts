@@ -4,5 +4,5 @@ namespace App\Models;
 
 class User extends BaseModel
 {
-    protected string $tableName = 'user';
+    protected string $tableName = 'users';
 }

@@ -34,8 +34,8 @@
                         <?php endif; ?>
                         <td class="px-4 py-2"><?= $item->email; ?></td>
                         <td class="px-4 py-2">
-                            <a href="/<? $dataType; ?>/update/<?= $item->id; ?>" class="text-blue-600 hover:underline mr-2">Edit</a>
-                            <a href="/<? $dataType; ?>/delete/<?= $item->id; ?>" class="text-red-600 hover:underline">Delete</a>
+                            <a href="/<?= $dataType; ?>/update/<?= $item->id; ?>" class="text-blue-600 hover:underline mr-2">Edit</a>
+                            <a href="/<?= $dataType; ?>/delete/<?= $item->id; ?>" class="text-red-600 hover:underline">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

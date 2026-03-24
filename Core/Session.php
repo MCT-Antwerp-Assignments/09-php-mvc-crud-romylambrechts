@@ -9,14 +9,14 @@ class Session
         session_start();
     }
 
-    public static function set(string $key, mixed $value = null): void
+    public static function set(string $key, mixed $value = null)
     {
         $_SESSION[$key] = $value;
     }
 
-    public static function get(string $key, mixed $default = null): void
+    public static function get(string $key, mixed $default = null)
     {
-        $_SESSION[$key] ?? $default;
+        return $_SESSION[$key] ?? $default;
     }
 
     public static function getAndForget(string $key, mixed $default = null)
